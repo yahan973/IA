@@ -1,0 +1,22 @@
+{
+  "name": "bordeauxgroupe4",
+  "version": "1.0.0",
+  "description": "Jeu Pente",
+  "main": "wgo.js",
+  "scripts": {
+    "test": "npm install express --save"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yahan973/IA.git"
+  },
+  "keywords": [
+    "key"
+  ],
+  "author": "Mehdi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yahan973/IA/issues"
+  },
+  "homepage": "https://github.com/yahan973/IA#readme"
+}
