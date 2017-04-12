@@ -24,24 +24,49 @@
             width: 600,
             
         });
+        var game = new WGo.Game("","KO");
+        console.log("Taille du plateau: "+game.size);
+        console.log("Type: "+game.repeating);
+        console.log("Prochaine couleur: "+game.turn);
+        
         var tool = document.getElementById("tool"); // get the <select> element
 
 board.addEventListener("click", function(x, y) {
-    if(tool.value == "black") {
+    if(game.turn == 1 && game.isValid(x, y)) {
+        tool.value = "black"
+        console.log("Possibilité de coup: "+game.isValid(x, y));
+        
+        
+        
+        console.log("Error code: "+game.play(x, y));
         board.addObject({
             x: x,
             y: y,
             c: WGo.B
         });
-        tool.value = "white";
+        console.log("Couleur de la pierre: "+game.getStone(x, y));
+        console.log(game.getPosition());
+        console.log("Prochaine couleur: "+game.turn);
+        game.turn = -1;
+        
     }
-    else if(tool.value == "white") {
+    else if(game.turn == -1 && game.isValid(x, y)) {
+        tool.value = "white";
+        console.log("Possibilité de coup: "+game.isValid(x, y));
+       
+        
+        console.log("Ajout d'une pierre: "+game.addStone(x,y,WGo.W));
+        console.log("Stone set: "+game.setStone(x, y, WGo.W));
         board.addObject({
             x: x,
             y: y,
             c: WGo.W
         });
-        tool.value = "black";
+        console.log("Couleur de la pierre: "+game.getStone(x, y));
+        console.log(game.getPosition());
+        console.log("Prochaine couleur: "+game.turn);
+        game.turn = 1;
+        
 
     }
     else if(tool.value == "remove") {
