@@ -33,8 +33,7 @@
 
 board.addEventListener("click", function(x, y) {
     if(game.turn == 1 && game.isValid(x, y)) {
-        tool.value = "black"
-        console.log("Possibilité de coup: "+game.isValid(x, y));
+        tool.value = "black";
         
         
         
@@ -47,16 +46,14 @@ board.addEventListener("click", function(x, y) {
         console.log("Couleur de la pierre: "+game.getStone(x, y));
         console.log(game.getPosition());
         console.log("Prochaine couleur: "+game.turn);
-        game.turn = -1;
+        
         
     }
     else if(game.turn == -1 && game.isValid(x, y)) {
         tool.value = "white";
-        console.log("Possibilité de coup: "+game.isValid(x, y));
        
         
-        console.log("Ajout d'une pierre: "+game.addStone(x,y,WGo.W));
-        console.log("Stone set: "+game.setStone(x, y, WGo.W));
+        console.log("Error code: "+game.play(x, y));
         board.addObject({
             x: x,
             y: y,
@@ -65,7 +62,7 @@ board.addEventListener("click", function(x, y) {
         console.log("Couleur de la pierre: "+game.getStone(x, y));
         console.log(game.getPosition());
         console.log("Prochaine couleur: "+game.turn);
-        game.turn = 1;
+        
         
 
     }
